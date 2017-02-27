@@ -1,6 +1,6 @@
-package allTasks.user;
+package all_tasks.user;
 
-import allTasks.bank.Bank;
+import all_tasks.bank.Bank;
 
 public class User {
     private long id;

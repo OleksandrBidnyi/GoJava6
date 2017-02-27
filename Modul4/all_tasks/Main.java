@@ -1,11 +1,11 @@
-package allTasks;
+package all_tasks;
 
-import allTasks.bank.BankSystemRealithation;
-import allTasks.bank.ChinaBank;
-import allTasks.bank.EUBank;
-import allTasks.bank.USBank;
-import allTasks.currency.Currency;
-import allTasks.user.User;
+import all_tasks.bank.BankSystemRealithation;
+import all_tasks.bank.ChinaBank;
+import all_tasks.bank.EUBank;
+import all_tasks.bank.USBank;
+import all_tasks.currency.Currency;
+import all_tasks.user.User;
 
 public class Main {
     public static void main(String[] args) {

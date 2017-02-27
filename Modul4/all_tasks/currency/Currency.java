@@ -1,4 +1,4 @@
-package allTasks.currency;
+package all_tasks.currency;
 
 public enum Currency {
     USD(1.065), EUR(0.94);//курс валют на момент написания задачи

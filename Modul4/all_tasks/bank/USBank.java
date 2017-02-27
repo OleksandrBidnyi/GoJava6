@@ -1,6 +1,6 @@
-package allTasks.bank;
+package all_tasks.bank;
 
-import allTasks.currency.Currency;
+import all_tasks.currency.Currency;
 
 public class USBank extends Bank {
 
@@ -18,12 +18,13 @@ public class USBank extends Bank {
 
     public final static int COMISSION_EUR_DOWN = 6;
     public final static int COMISSION_EUR_UP = 8;
+    public final static int COMISSION_LIMIT = 1000;
 
     public USBank(long id, String bankCountry, Currency currency, int numberOfEmployees, double avrSalaryOfEmployee, long rating, long totalCapital) {
         super(id, bankCountry, currency, numberOfEmployees, avrSalaryOfEmployee, rating, totalCapital);
     }
 
-    int getLimitOfWithdrawal() {
+    public int getLimitOfWithdrawal() {
         int withdrawal = 0;
         if (getCurrency().equals(Currency.USD)) {
             withdrawal = WITHDRAWAL_LIMIT_USD;
@@ -33,7 +34,7 @@ public class USBank extends Bank {
         return withdrawal;
     }
 
-    int getLimitOfFunding() {
+    public int getLimitOfFunding() {
         int limitOfFunding = 0;
         if (getCurrency().equals(Currency.USD)) {
             limitOfFunding = FUNDING_LIMIT_USD;
@@ -43,7 +44,7 @@ public class USBank extends Bank {
         return limitOfFunding;
     }
 
-    int getMonthlyRate() {
+    public int getMonthlyRate() {
         int monthlyRate = 0;
         if (getCurrency().equals(Currency.USD)) {
             monthlyRate = MONTHLY_RATE_USD;
@@ -53,18 +54,18 @@ public class USBank extends Bank {
         return monthlyRate;
     }
 
-    int getCommission(int summ) {
+    public int getCommission(int summ) {
         int comission = 0;
         if (getCurrency().equals(Currency.USD)) {
-            if (summ < 1000) {
+            if (summ < COMISSION_LIMIT) {
                 comission = COMISSION_USD_DOWN;
-            } else if (summ > 1000) {
+            } else if (summ > COMISSION_LIMIT) {
                 comission = COMISSION_USD_UP;
             }
         } else if (getCurrency().equals(Currency.EUR)) {
-            if (summ < 1000) {
+            if (summ < COMISSION_LIMIT) {
                 comission = COMISSION_EUR_DOWN;
-            } else if (summ > 1000) {
+            } else if (summ > COMISSION_LIMIT) {
                 comission = COMISSION_EUR_UP;
             }
         }

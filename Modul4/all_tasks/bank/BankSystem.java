@@ -1,6 +1,6 @@
-package allTasks.bank;
+package all_tasks.bank;
 
-import allTasks.user.User;
+import all_tasks.user.User;
 
 public interface BankSystem {
 
