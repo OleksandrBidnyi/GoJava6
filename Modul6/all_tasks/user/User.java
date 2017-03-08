@@ -10,7 +10,6 @@ public class User {
     private String lastName;
     private int salary;
     private int balance;
-    private static User[] users;
 
     public User(long id, String firstName, String lastName, int salary, int balance) {
         this.id = id;

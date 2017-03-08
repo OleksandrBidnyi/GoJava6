@@ -4,7 +4,10 @@ package all_tasks.user;
 /**
  * Created by Aleksandr on 06.03.2017.
  */
-public class UserUtils {
+public final class UserUtils {
+
+    private UserUtils() {
+    }
 
     public static User[] uniqueUsers(User[] users) {
         User temp[] = new User[users.length];
@@ -55,7 +58,7 @@ public class UserUtils {
     final public static long[] getUsersId(User[] users) {
         long[] usersId = new long[users.length];
         for (int i = 0; i < users.length; i++) {
-            usersId[i] = users[i].getId();
+            usersId[i] = users[i].getId();//for each
         }
         return usersId;
     }
@@ -66,7 +69,7 @@ public class UserUtils {
         int count = 0;
         for (int i = 0; i < users.length; i++) {
 
-            if (users[i].getLastName() != "" && users[i].getLastName() != null && users[i].getFirstName() != "" && users[i].getFirstName() != null) {
+            if (users[i].getLastName() != "" && users[i].getLastName() != null && (users[i].getFirstName() != "" && users[i].getFirstName() != null)) {
                 temp[count] = users[i];
                 count++;
             }

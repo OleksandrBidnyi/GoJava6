@@ -3,7 +3,10 @@ package all_tasks.arrays;
 /**
  * Created by Aleksandr on 05.03.2017.
  */
-public class ArraysUtils {
+public final class ArraysUtils {
+
+    private ArraysUtils() {
+    }
 
     public static int sum(int array[]) {
         if (array.length == 0) {
@@ -97,13 +100,14 @@ public class ArraysUtils {
         if (array.length == 0) {
             throw new IllegalArgumentException("Integer array is empty");
         }
+        int revers[] = new int[array.length];
+        System.arraycopy(array, 0, revers, 0, array.length);//склонировал массив
         for (int i = 0; array.length / 2 > i; i++) {
-            int tmp = array[i];
-            array[i] = array[array.length - i - 1];
-            array[array.length - i - 1] = tmp;
+            int tmp = revers[i];
+            revers[i] = revers[revers.length - i - 1];
+            revers[revers.length - i - 1] = tmp;
         }
-
-        return array;
+        return revers;
     }
 
     public static int[] findEvenElements(int array[]) {
