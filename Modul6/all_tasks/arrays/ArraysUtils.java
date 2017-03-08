@@ -102,7 +102,7 @@ public final class ArraysUtils {
         }
         int revers[] = new int[array.length];
         System.arraycopy(array, 0, revers, 0, array.length);//склонировал массив
-        for (int i = 0; array.length / 2 > i; i++) {
+        for (int i = 0; revers.length / 2 > i; i++) {
             int tmp = revers[i];
             revers[i] = revers[revers.length - i - 1];
             revers[revers.length - i - 1] = tmp;
