@@ -39,7 +39,7 @@ public class Main {
 
         System.out.println("check if set contain Order where User’s lastName is - “Petrov”: ");
         for (Order i : setOrder) {
-            if (i.getUser().getLastName() == "Petrov") {
+            if (i.getUser().getLastName().equals("Petrov")) {
                 System.out.println(i);
             } else
                 System.out.println("TreeSet hasn`t user with last name Petrov ");
@@ -54,8 +54,9 @@ public class Main {
         System.out.println("delete orders where currency is USD using Iterator: ");
         TreeSet<Order> treeSetWithoutUsd = new TreeSet<>();
         Iterator<Order> dellUsdIterator = setOrder.iterator();
+        Order countOrders;
         while (dellUsdIterator.hasNext()) {
-            Order countOrders = dellUsdIterator.next();
+            countOrders = dellUsdIterator.next();
             if (countOrders.getCurrency() != Currency.USD) {
                 treeSetWithoutUsd.add(countOrders);
             }

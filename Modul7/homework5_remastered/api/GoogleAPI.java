@@ -10,7 +10,7 @@ import java.util.Date;
  */
 public class GoogleAPI implements API {
 
-    ArrayList<Room> rooms = new ArrayList<>();
+    private ArrayList<Room> rooms = new ArrayList<>();
 
     public GoogleAPI() {
         rooms.add(new Room(2111, 155, 1, new Date(2016, 12, 22), "National", "Kyiv"));

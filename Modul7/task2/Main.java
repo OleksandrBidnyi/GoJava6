@@ -6,6 +6,7 @@ import task1.User;
 
 import java.lang.reflect.Array;
 import java.util.*;
+import java.util.stream.Collectors;
 
 
 /**
@@ -105,7 +106,7 @@ public class Main {
         for (int i = 0; i < lessPrice.size(); i++) {
             if (lessPrice.get(i).getPrice() < 1500) {
                 lessPrice.remove(i);
-                i--;
+                i--; //юзать итератор
             }
         }
         for (Order i : lessPrice) {
@@ -115,14 +116,8 @@ public class Main {
 
         System.out.println("separate list for two list - orders in USD and UAH: ");
 
-        ArrayList<Order> uahList = new ArrayList<>();
-        uahList.addAll(orders);
-        for (int i = 0; i < uahList.size(); i++) {
-            if (uahList.get(i).getCurrency() == Currency.USD) {
-                uahList.remove(i);
-                i--;
-            }
-        }
+        List<Order> uahList = orders.stream().filter((line) -> line.getCurrency() == Currency.UAH).collect(Collectors.toList());// rewrite with using stream
+
         System.out.println("UAH list: ");
         for (Order i : uahList) {
             System.out.println(i);
@@ -147,13 +142,13 @@ public class Main {
         ArrayList<Order> londonList = new ArrayList<>();
         ArrayList<Order> odesaList = new ArrayList<>();
         for (Order i : orders) {
-            if (i.getUser().getCity() == "Kyiv") {
+            if (i.getUser().getCity().equals("Kyiv")) {//equilse для String
                 kyivList.add(i);
             }
-            if (i.getUser().getCity() == "London") {
+            if (i.getUser().getCity().equals("London")) {
                 londonList.add(i);
             }
-            if (i.getUser().getCity() == "Odesa") {
+            if (i.getUser().getCity().equals("Odesa")) {
                 odesaList.add(i);
             }
         }

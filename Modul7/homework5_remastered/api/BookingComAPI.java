@@ -10,7 +10,7 @@ import java.util.Date;
  */
 public class BookingComAPI implements API {
 
-    ArrayList<Room> rooms = new ArrayList<>();
+    private ArrayList<Room> rooms = new ArrayList<>();
 
 
     public BookingComAPI() {

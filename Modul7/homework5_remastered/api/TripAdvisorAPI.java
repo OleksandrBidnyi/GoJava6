@@ -10,7 +10,7 @@ import java.util.Date;
  */
 public class TripAdvisorAPI implements API {
 
-    ArrayList<Room> rooms = new ArrayList<>();
+    private ArrayList<Room> rooms = new ArrayList<>();
 
     public TripAdvisorAPI() {
         rooms.add(new Room(3111, 185, 1, new Date(2016, 11, 22), "Holiday", "Kyiv"));
