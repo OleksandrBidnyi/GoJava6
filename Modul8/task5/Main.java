@@ -12,14 +12,14 @@ import task4.IManageSystemImpl;
 public class Main {
     public static void main(String[] args) {
 
-        Food food1 = new Food(IdGenerator.randId(), "Egg", Country.UKRAINE, 20);
-        Food food2 = new Food(IdGenerator.randId(), "Butter", Country.CANADA, 15);
-        Food food3 = new Food(IdGenerator.randId(), "Bread", Country.POLAND, 3);
-        Food food4 = new Food(IdGenerator.randId(), "Potatoes", Country.MOLDOVA, 12);
-        Food food5 = new Food(IdGenerator.randId(), "Carrot", Country.USA, 18);
-        Food food6 = new Food(IdGenerator.randId(), "Carrot", Country.USA, 18);
-        Food food7 = new Food(IdGenerator.randId(), "Carrot", Country.USA, 18);
-        Food food8 = new Food(11111, "Carrot", Country.USA, 18);
+        Food food1 = new Food( "Egg", Country.UKRAINE, 20);
+        Food food2 = new Food( "Butter", Country.CANADA, 15);
+        Food food3 = new Food( "Bread", Country.POLAND, 3);
+        Food food4 = new Food( "Potatoes", Country.MOLDOVA, 12);
+        Food food5 = new Food( "Carrot", Country.USA, 18);
+        Food food6 = new Food( "Carrot", Country.USA, 18);
+        Food food7 = new Food( "Carrot2", Country.USA, 18);
+        Food food8 = new Food("Carrot", Country.USA, 18);
 
         IManageSystem<Food> manager = new IManageSystemImpl();
 

@@ -6,15 +6,15 @@ import task1.IdGenerator;
 /**
  * Created by Aleksandr on 24.03.2017.
  */
-public class Food implements IdGenerator {
+public class Food {
 
-    private int id = getId();
+    private int id;
     private String name;
     private Country country;
     private int expiration;
 
-    public Food(int id, String name, Country country, int expiration) {
-        this.id = id;
+    public Food(String name, Country country, int expiration) {
+        this.id = IdGenerator.idGenerate(name, country, expiration);
         this.name = name;
         this.country = country;
         this.expiration = expiration;
