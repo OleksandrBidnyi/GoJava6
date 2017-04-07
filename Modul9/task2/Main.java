@@ -67,7 +67,7 @@ public class Main {
         System.out.println("delete items where price less than 1500");
         ArrayList<Order> lessPrice = new ArrayList<>();
         lessPrice.addAll(orders);
-        lessPrice = (ArrayList<Order>) Sort.lessPrice(lessPrice);
+        lessPrice = (ArrayList<Order>) Sort.lessPrice(lessPrice,1500);
         lessPrice.stream().forEach(x -> System.out.println(x));
         System.out.println();
 
@@ -83,7 +83,7 @@ public class Main {
         System.out.println("check if orders contain Order where User’s lastName is - “Petrov”: ");
         ArrayList<Order> checkByLastNameList = new ArrayList<>();
         checkByLastNameList.addAll(orders);
-        checkByLastNameList = (ArrayList<Order>) Sort.checkByLastName(checkByLastNameList);
+        checkByLastNameList = (ArrayList<Order>) Sort.checkByLastName(checkByLastNameList, "Petrov");
         checkByLastNameList.stream().forEach(x-> System.out.println(x));
         System.out.println();
 

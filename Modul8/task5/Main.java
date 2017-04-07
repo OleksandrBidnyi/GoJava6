@@ -63,7 +63,7 @@ public class Main {
         System.out.println();
 
         System.out.println("Get all food: ");
-        manager.getProducts();
+        manager.getProducts().stream().forEach(x-> System.out.println(x));
         System.out.println();
 
         System.out.println("Get all prices: ");

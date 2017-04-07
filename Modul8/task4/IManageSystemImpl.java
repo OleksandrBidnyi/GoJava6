@@ -4,15 +4,14 @@ import task2.Food;
 import task3.IManageSystem;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 /**
  * Created by Aleksandr on 27.03.2017.
  */
 public class IManageSystemImpl implements IManageSystem<Food> {
 
-    private static Map<Food, Double> database = new LinkedHashMap<>();
-    private double usuallyPrice = 5.0;
+    private  Map<Food, Double> database = new LinkedHashMap<>();
+    private static final double USUALLY_PRICE = 5.0;
 
     @Override
     public Food save(Food obj, double price) {
@@ -24,7 +23,7 @@ public class IManageSystemImpl implements IManageSystem<Food> {
 
     @Override
     public Food save(Food obj) {
-        database.put(obj, usuallyPrice);
+        database.put(obj, USUALLY_PRICE);
         System.out.println("Food has been saved without price");
         return obj;
     }
@@ -56,17 +55,11 @@ public class IManageSystemImpl implements IManageSystem<Food> {
 
     @Override
     public Double getPrice(Food obj) {
-        for (Double i : database.values()) {
-            return database.get(obj);
-        }
-        return null;
+        return database.get(obj);
     }
 
     @Override
     public Set<Food> getProducts() {
-        for (Food food : database.keySet()) {
-            System.out.println(food);
-        }
         return database.keySet();
     }
 

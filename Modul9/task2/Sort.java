@@ -52,8 +52,8 @@ public class Sort {
     }
 
     //delete items where price less than 1500
-    static List<Order> lessPrice(List<Order> list) {
-        return list.stream().filter(o -> o.getPrice() > 1500).collect(Collectors.toList());
+    static List<Order> lessPrice(List<Order> list, int minValueFilter) {
+        return list.stream().filter(o -> o.getPrice() > minValueFilter).collect(Collectors.toList());
     }
 
     //separate list for parameters
@@ -61,14 +61,9 @@ public class Sort {
         return list.stream().collect(Collectors.groupingBy(function));
     }
 
-    //check by last name
-    static List<Order> checkByLastName(List<Order> list) {
-        return list.stream().filter(o -> o.getUser().getLastName().equals("Petrov")).collect(Collectors.toList());
-    }
-
-    /*static List<Order> checkByLastName (List<Order> list, String lastName){
+    static List<Order> checkByLastName (List<Order> list, String lastName){
         return list.stream().filter(o -> o.getUser().getLastName().equals(lastName)).collect(Collectors.toList());
-    }*/
+    }
 
     //delete orders by currency
     static List<Order> removeByCurrency(List<Order> list, Currency currency) {
