@@ -4,7 +4,7 @@ package task2;
  * Created by Aleksandr on 09.04.2017.
  */
 public class MyException extends Exception {
-    String s;
+    private String s;
 
     public MyException(String s) {
         this.s = s;
