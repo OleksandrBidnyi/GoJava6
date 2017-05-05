@@ -1,3 +1,5 @@
+package finalProject;
+
 /**
  * Created by Aleksandr on 26.04.2017.
  */
@@ -58,7 +60,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "finalProject.User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", password='" + password + '\'' +

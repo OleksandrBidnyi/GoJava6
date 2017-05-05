@@ -1,3 +1,5 @@
+package finalProject;
+
 /**
  * Created by Aleksandr on 26.04.2017.
  */
@@ -87,7 +89,7 @@ public class Room {
 
     @Override
     public String toString() {
-        return "Room{" +
+        return "finalProject.Room{" +
                 "id=" + id +
                 ", price=" + price +
                 ", persons=" + persons +

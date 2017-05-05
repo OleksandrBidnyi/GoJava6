@@ -1,4 +1,5 @@
-import javax.imageio.IIOException;
+package finalProject;
+
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -35,10 +36,10 @@ public class UserDAO implements DAO<User> {
             System.err.println("File of userBase hasn`t created");
         }
 
-        //managing collection of users from file, while creating ex. of UserDAO()
+        //managing collection of users from file, while creating ex. of finalProject.UserDAO()
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             if (br.readLine() == null)
-                System.out.println("User Base is empty!");
+                System.out.println("finalProject.User Base is empty!");
             else {
                 Stream<String> streamFromFiles = Files.lines(Paths.get(file.getAbsolutePath()));
                 streamFromFiles.forEach(line -> {
@@ -104,7 +105,7 @@ public class UserDAO implements DAO<User> {
             System.err.println("Add correct information to file!");
             return false;
         }
-        System.out.println("User has been added to dataBase");
+        System.out.println("finalProject.User has been added to dataBase");
         return true;
     }
 
@@ -122,7 +123,7 @@ public class UserDAO implements DAO<User> {
                 writeToFile(file, usersBase);
             }
         } catch (NoSuchElementException e) {
-            System.err.println("User with ID %d is absent in dataBase");
+            System.err.println("finalProject.User with ID %d is absent in dataBase");
             return false;
         } catch (NullPointerException e) {
             System.err.println("Add correct information about user!");

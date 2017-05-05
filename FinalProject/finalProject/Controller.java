@@ -1,7 +1,11 @@
+package finalProject;
+
 import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
+
+
 
 /**
  * Created by Aleksandr on 29.04.2017.
@@ -41,7 +45,7 @@ public class Controller {
     //Enter to system for user
     public User enter(String name, String pass) {
         if (UserDAO.getUserDAO().getBase().size() == 0) {
-            System.out.println("User hasn`t been found");
+            System.out.println("finalProject.User hasn`t been found");
             return null;
         }
         User user = null;
@@ -66,7 +70,7 @@ public class Controller {
         return list;
     }
 
-    private List<Hotel> findHotelByCity(String city) {
+    public List<Hotel> findHotelByCity(String city) {
         List<Hotel> list = HotelDAO.getHotelDAO().getBase().stream().filter(hotel ->
                 hotel.getCity().toLowerCase().contains(city.toLowerCase())).collect(Collectors.toList());
         if (list.size() == 0) {
@@ -127,7 +131,7 @@ public class Controller {
                         System.out.println("You hasn`t booked this room");
                     }
                 } catch (NoSuchElementException | NullPointerException e) {
-                    System.err.printf("Room with ID %d in hotel with ID %d hasn`t been found \n", roomId, hotelId);
+                    System.err.printf("finalProject.Room with ID %d in hotel with ID %d hasn`t been found \n", roomId, hotelId);
                 }
             } catch (NoSuchElementException | NullPointerException e) {
                 System.err.printf("The hotel with ID %d is absent in base\n", hotelId);
@@ -141,7 +145,7 @@ public class Controller {
     public List<Room> findRoom(Map<String, String> params) {
         List<Room> rooms = RoomDAO.getRoomDAO().getBase().stream().filter(room ->
                 room.getUserReserved() == null).collect(Collectors.toList());
-        String city = params.get(HOTEL_NAME);
+        String city = params.get(CITY);
         String hotelName = params.get(HOTEL_NAME);
         String personsString = params.get(PERSONS);
         String maxPriceStr = params.get(MAX_PRICE);
@@ -257,5 +261,42 @@ public class Controller {
         if (HotelDAO.getHotelDAO().add(hotel))
             return hotel;
         return null;
+    }
+
+    public Room addRoom(Room room){
+        long id;
+        if(RoomDAO.getRoomDAO().getBase().size() != 0){
+            Room roomWithTheBiggestId = RoomDAO.getRoomDAO().getBase().stream().max((r1, r2) ->
+                    Long.compare(r1.getId(), r2.getId())).get();
+            id = roomWithTheBiggestId.getId()+1;
+        }
+        else id=300;
+        room = new Room(id,room.getPrice(),room.getPersons(),room.getHotel(),room.getUserReserved());
+        if(RoomDAO.getRoomDAO().add(room)) return room;
+        return null;
+    }
+
+    public Hotel findHotelById(long id){
+        Hotel hotel = null;
+        try{
+            hotel= HotelDAO.getHotelDAO().getBase().stream().filter(h->h.getId()==id).findAny().get();
+
+        }catch (NoSuchElementException e){
+            System.err.println("The hotel with this ID hasn`t been found");
+        }
+        return  hotel;
+    }
+
+    public List<User> findUsersByName (String name){
+        List <User> list = UserDAO.getUserDAO().getBase().stream().filter(user ->
+        user.getName().toLowerCase().contains(name.toLowerCase())).collect(Collectors.toList());
+        if(list.size() == 0)
+            System.out.println("finalProject.User hasn`t been found");
+        return list;
+    }
+
+    public List<Room> booked(){
+        return RoomDAO.getRoomDAO().getBase().stream().filter(user->
+        user.getUserReserved()!=null).collect(Collectors.toList());
     }
 }

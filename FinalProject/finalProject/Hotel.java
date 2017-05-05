@@ -1,4 +1,7 @@
+package finalProject;
+
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created by Aleksandr on 26.04.2017.
@@ -40,7 +43,8 @@ public class Hotel {
     }
 
     public List<Room> getRooms() {
-        return rooms;
+        return rooms = RoomDAO.getRoomDAO().getBase().stream()
+                .filter(room -> room.getHotel().getId() == this.getId()).collect(Collectors.toList());
     }
 
     public void setRooms(List<Room> rooms) {
@@ -69,7 +73,7 @@ public class Hotel {
 
     @Override
     public String toString() {
-        return "Hotel{" +
+        return "finalProject.Hotel{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", city='" + city + '\'' +

@@ -1,3 +1,5 @@
+package finalProject;
+
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -52,7 +54,7 @@ public class RoomDAO implements DAO<Room> {
                     Hotel hotel = null;
                     User user = null;
                     for (int i = 0; i < hotelDAO.getBase().size(); i++) {
-                        if (hotelDAO.getBase().get(i).getId() == Long.parseLong(fields[4])) {
+                        if (hotelDAO.getBase().get(i).getId() == Long.parseLong(fields[3])) {
                             hotel = hotelDAO.getBase().get(i);
                             break;
                         }
@@ -153,7 +155,7 @@ public class RoomDAO implements DAO<Room> {
                 writerToFile(file, roomList);
             }
         } catch (NoSuchElementException e) {
-            System.err.printf("The Room with this ID %d isn`t in base." + "\n", room.getId());
+            System.err.printf("The finalProject.Room with this ID %d isn`t in base." + "\n", room.getId());
             return false;
         } catch (NullPointerException e) {
             System.err.println("Add correct information to file!");
