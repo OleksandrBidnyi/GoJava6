@@ -17,17 +17,6 @@ public class Controller {
     public static final String MAX_PRICE = "maxPrice";
     public static final String MIN_PRICE = "minPrice";
 
-    //find reserved rooms by user
-    public List<Room> bookedByUser(User user) {
-        List<Room> list = RoomDAO.getRoomDAO().getBase().stream().filter(room ->
-                room.getUserReserved() != null).filter(room -> room.getUserReserved().
-                equals(user)).collect(Collectors.toList());
-        if (list.size() == 0) {
-            System.out.println("haven`t booking rooms");
-        }
-        return list;
-    }
-
     //user registration in base
     public boolean registerUser(User newUser) {
         long id;
@@ -45,7 +34,7 @@ public class Controller {
     //Enter to system for user
     public User enter(String name, String pass) {
         if (UserDAO.getUserDAO().getBase().size() == 0) {
-            System.out.println("finalProject.User hasn`t been found");
+            System.out.println("User hasn`t been found");
             return null;
         }
         User user = null;
@@ -59,6 +48,17 @@ public class Controller {
         }
         System.out.println("You enter as: " + name);
         return user;
+    }
+
+    //find reserved rooms by user
+    public List<Room> bookedByUser(User user) {
+        List<Room> list = RoomDAO.getRoomDAO().getBase().stream().filter(room ->
+                room.getUserReserved() != null).filter(room -> room.getUserReserved().
+                equals(user)).collect(Collectors.toList());
+        if (list.size() == 0) {
+            System.out.println("haven`t booking rooms");
+        }
+        return list;
     }
 
     public List<Hotel> findHotelByName(String name) {
@@ -110,7 +110,7 @@ public class Controller {
         return false;
     }
 
-    public boolean canselReserve(long roomId, long userId, long hotelId) {
+    public boolean cancelReserve(long roomId, long userId, long hotelId) {
         try {
             User userToRegister = UserDAO.getUserDAO().getBase().stream().
                     filter(user -> user.getId() == userId).findAny().get();

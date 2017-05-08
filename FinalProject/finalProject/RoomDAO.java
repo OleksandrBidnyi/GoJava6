@@ -190,5 +190,4 @@ public class RoomDAO implements DAO<Room> {
         return roomList;
     }
 
-    //
 }

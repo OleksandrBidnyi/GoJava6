@@ -209,7 +209,7 @@ public class Main {
                                     try {
                                         long roomId = Long.parseLong(s[0].trim());
                                         long hotelId = Long.parseLong(s[1].trim());
-                                        controller.canselReserve(roomId, user.getId(), hotelId);
+                                        controller.cancelReserve(roomId, user.getId(), hotelId);
                                     } catch (NumberFormatException e) {
                                         System.out.println("Enter int value!");
                                     }
@@ -282,7 +282,7 @@ public class Main {
                             }
                             System.out.println("Incorrect input");
                         }
-                    }//end of user with name
+                    }//the end of user with name
                 }
             }
             //registration
