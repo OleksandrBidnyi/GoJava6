@@ -171,7 +171,7 @@ public class Main {
                                     String choice4 = bufferedReader.readLine();
                                     if (choice4.equals("0")) break first;
                                     if (choice4.equals("9")) continue third;
-                                    controller.findHotelByCity(choice4.trim()).forEach(System.out::println);
+                                    controller.findHotelByName(choice4.trim()).forEach(System.out::println);
                                     System.out.println("Do you want to continue the search?");
                                 }
                             }
