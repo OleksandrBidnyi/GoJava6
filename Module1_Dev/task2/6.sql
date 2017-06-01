@@ -1,4 +1,4 @@
--- Вычислить, среднюю ЗП программистов в проекте, который приносит наименьшую прибыль.
+п»ї-- Р’С‹С‡РёСЃР»РёС‚СЊ, СЃСЂРµРґРЅСЋСЋ Р—Рџ РїСЂРѕРіСЂР°РјРјРёСЃС‚РѕРІ РІ РїСЂРѕРµРєС‚Рµ, РєРѕС‚РѕСЂС‹Р№ РїСЂРёРЅРѕСЃРёС‚ РЅР°РёРјРµРЅСЊС€СѓСЋ РїСЂРёР±С‹Р»СЊ.
 
 SELECT projects.name, projects.cost, avg(salary) FROM developers
 INNER JOIN developers_projects ON developers.id = developers_projects.developer_id

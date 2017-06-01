@@ -1,4 +1,4 @@
--- Найти самый дорогой проект (исходя из ЗП разработчиков). 
+﻿-- Найти самый дорогой проект (исходя из ЗП разработчиков). 
 
 SELECT projects.name, sum(developers.salary)
 from projects INNER JOIN developers_projects INNER JOIN developers

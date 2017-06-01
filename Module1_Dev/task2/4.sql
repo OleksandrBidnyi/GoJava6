@@ -1,4 +1,4 @@
--- Добавить поле (cost - стоимость) в таблицу Projects .
+п»ї-- Р”РѕР±Р°РІРёС‚СЊ РїРѕР»Рµ (cost - СЃС‚РѕРёРјРѕСЃС‚СЊ) РІ С‚Р°Р±Р»РёС†Сѓ Projects .
 
 ALTER TABLE projects ADD COLUMN cost INT;
 

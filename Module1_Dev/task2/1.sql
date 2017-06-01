@@ -1,4 +1,4 @@
--- Добавить разаработчикам поле (salary - зарплата). 
+﻿-- Добавить разаработчикам поле (salary - зарплата). 
 
 ALTER TABLE developers ADD COLUMN salary INT;
 
