@@ -1,0 +1,25 @@
+H3{
+    color: mediumspringgreen ;
+    font-size: 40px;
+}
+
+body{
+    background-image:url(view.jpg);
+    font: 1em Arial;
+
+    margin: 20px;
+}
+table{
+    background-color: rgba(0, 0, 0, 0.6);
+    opacity: 0.7;
+}
+tr{
+    color: white;
+}
+a{
+    color: greenyellow;
+}
+
+a:hover{
+    color: springgreen;
+}
